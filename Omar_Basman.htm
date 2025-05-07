@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="favicon/Bag.png">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </a>
+    
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply the background image */
+        body {
+            margin: 0;
+            padding: 0;
+            /*background-image: url('images/background.jpg');*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: auto; /* Prevents scrolling */
+        }
+
+
+        /* Semi-transparent overlay for readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*background-image: url("images/background.jpg");*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.5);
+            filter: blur(2px);
+            z-index: -1;
+        }
+        html, body {
+            height: 100%;
+        }
+        /* Other style adjustments */
+        .w3-row-padding img { margin-bottom: 12px; }
+        .bgimg {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /*background-image: url('images/background.jpg'); */
+            min-height: 100%;
+        }
+        .custom-image {
+            width: 300px;
+            height: 530px;
+        }
+        .map-location {
+            width: 80%;
+            height: auto;
+        }
+        .section-heading {
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+        .skills-bar {
+            background-color: #ccc;
+            text-align: left;
+            margin-bottom: 20px;
+            height: 24px;
+        }
+        .skills-bar-inner {
+            background-color: #4CAF50;
+            height: 60%;
+            text-align: center;
+            color: white;
+        }
+        footer i {
+            cursor: pointer;
+        }
+        .menu button {
+            position: fixed;
+            top: 20px;
+            left: 50px;
+            background-color: black;
+            z-index: 3;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.7s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Home section styling */
+        .home .content h1 {
+            font-size: 3rem;
+            margin: 0 0 20px;
+        }
+
+        .home .content p {
+            font-size: 1.5rem;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- Sidebar Menu -->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+    <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright"><i class="fa fa-remove"></i></a>
+    <div class="w3-bar-block w3-center">
+        <a href="#home" class="w3-bar-item w3-button" onclick="closeNav()">Home</a>
+        <a href="#about" class="w3-bar-item w3-button" onclick="closeNav()">About Me</a>
+        <a href="#portfolio" class="w3-bar-item w3-button" onclick="closeNav()">Projects</a>
+        <a href="#certificates" class="w3-bar-item w3-button" onclick="closeNav()">Certificates</a>
+        <a href="#contact" class="w3-bar-item w3-button" onclick="closeNav()">Contact</a>
+    </div>
+</nav>
+
+<!-- Menu icon to open sidebar -->
+<span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+    <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+      <i class="fa fa-remove"></i>
+    </a>
+    <div class="w3-bar-block w3-center">
+      <a href="#home" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Portfolio</a>
+      <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About</a>
+      <a href="#certificates" class="w3-bar-item w3-button" onclick="closeNav()">Certificates</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
+      
+
+    </div>
+  </nav>
+<!-- Main Content -->
+<div>
+    <!-- Header -->
+    <header id="home" class="w3-container w3-center w3-light-grey" style="padding:128px 16px">
+        <h1 class="w3-jumbo"><b>Omar Basman</b></h1>
+        <p>Software Engineering Student in first year </p>
+        <img src="images/Omar Basman.jpg" class="w3-circle" alt="Profile Image" style="width:200px;">
+        <br><br>
+        <button class="w3-button w3-dark-grey w3-padding-large w3-hover-black">
+            <a href="files/Omar's CV.pdf" download="Omar_Basman_CV">
+                <i class="fa fa-download"></i> Download Resume
+            </a>
+            
+        </button>
+        <br><br>
+            <button onclick="goToPage()" class="w3-button w3-dark-grey w3-padding-large w3-hover-black">
+                <i class="fa fa-folder-open"></i> View Projects
+            </button>
+            
+        </button>
+    </header>
+
+     <!-- About Section -->
+     <section id="about" class="w3-container w3-light-grey w3-padding-32">
+        <h2 class="section-heading">About Me</h2>
+        <p>I'm a dedicated software engineering student at University of Ottawa with a strong passion for coding and problem solving, I thrive on creating professional solutions to complexe and hard challenges. I aim to create impactful projects that combine creativity and technology.
+            When i started in the career, i have hands-on experience developping web pages, using HTML5, CSS, and javascript; to demonstrate my skills in frontend, i created this portfolio, additionaly, i learned python.
+        </p>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="w3-container">
+        <h2 class="section-heading">Projects</h2>
+        <p>Here are a few projects that I have worked on:</p>
+        <div class="w3-row-padding">
+            <div class="w3-col m4">
+                <div class="w3-card w3-hover-shadow">
+                    <img src="images/company.gif" alt="Project 1" style="width:100%">
+                    <div class="w3-container">
+                        <h4>Project 1</h4>
+                        <p>A company called Stylique</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m4">
+                <div class="w3-card w3-hover-shadow">
+                    <img src="images/Calculator.gif" alt="Project 2" style="width:100%">
+                    <div class="w3-container">
+                        <h4>Project 2</h4>
+                        <p>An expert calculator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m4">
+                <div class="w3-card w3-hover-shadow">
+                    <img src="images/Portfolio.gif" alt="Project 3" style="width:100%">
+                    <div class="w3-container">
+                        <h4>Project 3</h4>
+                        <p>Personal portfolio website design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Certificates Section -->
+     <section id="certificates" class="w3-container">
+        <h2 class="section-heading">certificates</h2>
+        <p>Below is a professional certificates I have earned:</p>
+        <div>
+            <img src="images/Certificate.jpg" alt="Professional Certificate" style="width:60%; max-width:350px; margin:20px auto;">
+            <img src="images/Certificate 1.jpg" alt="Professional Certificate" style="width:60%; max-width:350px; margin:20px auto;">
+            <img src="images/Certificate 2.jpg" alt="Professional Certificate" style="width:60%; max-width:350px; margin:20px auto;">
+            <img src="images/Certificate 3.jpg" alt="Professional Certificate" style="width:60%; max-width:350px; margin:20px auto;">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="w3-container">
+        <h2 class="section-heading">Contact Me</h2>
+        <p><i class="fa fa-envelope"></i> Email: <a href="mailto:oalmo045@uottawa.ca">oalmo045@uottawa.ca</a></p>
+        <p><i class="fa fa-phone"></i> Phone: +1 (343) 630-0601</p>
+        <p><i class="fa fa-map-marker"></i> Location: Ottawa, Canada</p>
+    </section>
+
+    <!-- Image of location/map -->
+    
+    <img src="images/University.jpg" class="w3-image" style="width:60%; height: auto; margin:32px 0;">
+    
+
+
+   
+    <p>Lets get in touch. Send me a message:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+    
+  <!-- End Contact Section -->
+  </div>  
+  
+    <!-- Footer -->
+    <footer class="w3-container w3-light-grey w3-padding-16">
+        <div>
+            <a href="https://www.instagram.com/basmanomar" target="blank" rel="noopener noreferrer">
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/omar-basman-almoghly-37208b328" target="blank">
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </a>
+            <a href="https://www.facebook.com/in/profile.php?id=100090731062235&mibextid=ZbWKwL" target="blank" rel="noopener noreferrer">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            </a>
+        </div>
+        <p>Made <i class="w3-text-red"></i> by Omar Basman</p>
+    </footer>
+</div>
+
+<!-- JavaScript -->
+<script>
+function openNav() {
+    document.getElementById("mySidebar").style.width = "200px";
+    document.getElementById("mySidebar").style.display = "block";
+}
+function closeNav() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+function goToPage() {
+    window.location.href = "#portfolio"; // Replace with your desired URL
+}
+</script>
+</body>
+</html>
